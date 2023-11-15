@@ -278,6 +278,10 @@ pub struct MqttClient<
 impl<'buf, TcpStack: TcpClientStack, Clock: embedded_time::Clock, Broker: crate::Broker>
     MqttClient<'buf, TcpStack, Clock, Broker>
 {
+    pub fn stack_mut(&mut self) -> &mut TcpStack {
+        self.network.stack_mut()
+    }
+
     /// Subscribe to a topic.
     ///
     /// # Note

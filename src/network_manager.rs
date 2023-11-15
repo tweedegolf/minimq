@@ -35,6 +35,10 @@ where
         }
     }
 
+    pub fn stack_mut(&mut self) -> &mut TcpStack {
+        &mut self.network_stack
+    }
+
     pub fn socket_was_closed(&mut self) -> bool {
         let was_closed = self.connection_died;
         if was_closed {
